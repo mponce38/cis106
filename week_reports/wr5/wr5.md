@@ -22,3 +22,6 @@
 ### Practice 2
 ![chapter2.p2](chapter2.p2.png)
 ![chapter2.p3](chapter2.p3.png)
+
+[lab](https://github.com/mponce38/cis106/tree/main/labs/lab5)
+[notes](https://github.com/mponce38/cis106/tree/main/notes/notes5)
