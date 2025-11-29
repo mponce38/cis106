@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>deliverable1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="deliverable-1">Deliverable 1</h1>
+<h2 id="questions">Questions</h2>
+<h3 id="1-what-is-a-web-server">1. What is a web server?</h3>
+<p><img src="https://www.c-sharpcorner.com/UploadFile/c8b86e/introduction-to-web-server/Images/web Servar.jpg" alt="server"></p>
+<p>A web server is a computer system or software that stores websites and delivers them to users over the internet. When you type a website address into your browser, the browser sends a request to the web server, which finds the correct webpage, image, or file and sends it back so it can be displayed on your screen. Web servers can refer to both the physical machines in data centers that stay online 24/7 and the software programs that handle requests, such as Apache, Nginx, or Microsoft IIS. In short, a web server is what makes websites accessible by responding to browser requests and sending back the content you want to see.</p>
+<h3 id="2-what-are-some-different-web-server-applications">2. What are some different web server applications?</h3>
+<h4 id="application-1">Application 1</h4>
+<p>Apache HTTP Server</p>
+<p>Apache is the most widely used open-source web server in the world. It’s known for its stability, flexibility, and huge library of modules that let you customize features like security, URL rewriting, authentication, caching, and more. Apache uses a process-based architecture, meaning it creates separate threads to handle requests, which is great for compatibility but can use more memory under heavy load. It runs on almost every operating system, including Linux, Windows, and macOS, and is commonly used for hosting websites, applications, and APIs.</p>
+<h4 id="application-2">Application 2</h4>
+<p>Nginx</p>
+<p>Nginx (pronounced “engine-x”) is a high-performance web server built to handle large numbers of concurrent connections efficiently. Unlike Apache’s process-based model, Nginx uses an event-driven architecture that makes it extremely fast and lightweight. It’s commonly used for high-traffic sites, reverse proxying, load balancing, caching, and serving static files. Many large companies (Netflix, Spotify, Airbnb) use Nginx because it scales very well and reduces server load.</p>
+<h4 id="application-3">Application 3</h4>
+<p>Microsoft IIS (Internet Information Services)</p>
+<p>IIS is Microsoft’s web server built into Windows Server, commonly used in enterprise environments where organizations already rely on Microsoft technologies. It integrates tightly with ASP.NET, Active Directory, and Windows authentication, making it ideal for hosting .NET applications and internal corporate sites. IIS includes graphical management tools, request filtering, logging, and built-in security features, and it’s known for being beginner-friendly due to its GUI and Windows integration.</p>
+<h3 id="3-what-is-virtualization">3. What is virtualization?</h3>
+<p>Virtualization is a technology that lets you run multiple operating systems or computing environments on a single physical computer. Instead of each operating system needing its own separate machine, virtualization uses software called a hypervisor to divide one physical computer’s hardware into several virtual machines (VMs). Each VM acts like its own independent computer with its own CPU, memory, storage, and operating system.</p>
+<p>This allows you to run Windows, Linux, and other systems all on the same physical hardware without them interfering with each other. Virtualization improves efficiency, reduces hardware costs, makes testing and labs easier, and allows safe experimentation without damaging the main system. It’s commonly used in IT, cloud computing, servers, homelabs, and cybersecurity labs.</p>
+<h3 id="4-what-is-virtualbox">4. What is virtualbox?</h3>
+<p>VirtualBox is a free, open-source virtualization software that lets you run multiple operating systems on your computer at the same time. It creates virtual machines (VMs)—isolated environments where you can install Windows, Linux, macOS (with limitations), and more, without affecting your main system.</p>
+<p>With VirtualBox, you can test software, practice networking labs, run server environments, or try different operating systems safely. It includes features like snapshots (to save the state of a VM), shared folders, USB pass-through, networking modes (NAT, bridged, host-only), and support for 64-bit and multi-core processors. VirtualBox is widely used for homelabs, cybersecurity training, development, and IT education because it works on Windows, macOS, and Linux, and doesn’t require expensive hardware.</p>
+<h3 id="5-what-is-a-virtual-machine">5. What is a virtual machine?</h3>
+<p>A virtual machine (VM) is a software-based computer that runs inside your real, physical computer. It behaves exactly like a separate physical machine, with its own virtual CPU, memory, storage, and operating system. You can install Windows, Linux, or other systems inside a VM without changing anything on your main computer. VMs run on top of virtualization software (like VirtualBox, VMware, or Hyper-V), and they let you test software, run servers, practice networking, experiment safely, or isolate risky tasks. Because each VM is isolated, anything that happens inside it won’t affect your actual computer, making it perfect for IT labs, cybersecurity, and learning new systems.</p>
+<h3 id="6-in-the-context-of-virtualization-what-does-host-machine-and-guest-machine-mean">6. In the context of virtualization, what does host machine and guest machine mean?</h3>
+<ul>
+<li>
+<p><strong>Host Machine:</strong> The host machine is the real, physical computer you are using.
+It provides the actual hardware CPU, RAM, storage, and network that gets shared with virtual machines.
+Example: Your Windows 10 laptop running VirtualBox is the host.</p>
+</li>
+<li>
+<p><strong>Guest Machine:</strong> The guest machine is the virtual machine (VM) running inside the host.
+It has its own virtual CPU, memory, storage, and operating system, but all of it is simulated by the host.
+Example: A Debian Linux VM you installed inside VirtualBox is the guest.</p>
+</li>
+</ul>
+<h3 id="7-what-is-debian">7. What is Debian?</h3>
+<p>Debian is a free, open-source Linux operating system known for its stability, security, and huge software repository. It’s one of the oldest and most respected Linux distributions, and many other popular systems like Ubuntu, Kali Linux, and Linux Mint are built from Debian.</p>
+<p>Debian is widely used for servers, cybersecurity labs, development environments, and learning Linux because it’s reliable, well-documented, and completely community-driven. When you install Debian, you get the Linux kernel along with thousands of packages for tools, software, and utilities. It’s also commonly used in VirtualBox or VMware for IT and networking practice because it runs fast and doesn’t use a lot of system resources.</p>
+<h3 id="8-what-is-a-firewall">8. What is a firewall?</h3>
+<p><img src="https://exa.net.uk/wp-content/uploads/2021/06/What-is-a-firewall.png" alt="Firewall"></p>
+<p>A firewall is a security tool that protects a computer or network by controlling what traffic is allowed in or out. It acts like a digital security guard, checking each incoming or outgoing connection and deciding whether to allow or block it based on rules. Firewalls help prevent hackers, malware, and unauthorized access from reaching your devices or network.</p>
+<p>Firewalls can be hardware devices (like those used in routers or business networks) or software programs (like Windows Firewall). They filter traffic using rules such as IP addresses, ports, protocols, and application behavior. In short, a firewall creates a protective barrier between a trusted internal network and the untrusted outside world (like the internet) to keep systems safe.</p>
+<h3 id="9-what-is-ssh">9. What is SSH?</h3>
+<p>SSH (Secure Shell) is a secure network protocol used to remotely access and manage computers over an unsecured network like the internet. It creates an encrypted connection, which means everything you type passwords, commands, data is protected from anyone trying to spy on it.</p>
+<p>With SSH, you can open a command-line session on another computer (usually a server or a Linux machine) and control it as if you were sitting right in front of it. It’s commonly used by system administrators, developers, and IT students for managing servers, running commands, transferring files, and doing remote troubleshooting.</p>
+<h3 id="10-what-is-an-ip-address">10. What is an IP Address?</h3>
+<p>An IP address (Internet Protocol address) is a unique number assigned to every device on a network so it can be identified and communicate with other devices. It works like a home address, but for computers—allowing data to know exactly where to go. When you browse the internet, send emails, or connect to Wi-Fi, your device uses its IP address to send and receive information. There are two main types: IPv4 (like 192.168.1.1) and IPv6 (like 2606:4700:4700::1111). Without IP addresses, devices wouldn’t be able to find each other or exchange data across networks or the internet.</p>
+<h3 id="11-what-is-a-network-mask">11. What is a network mask?</h3>
+<p>A network mask (also called a subnet mask) is a number that divides an IP address into two parts: the network portion and the host portion. It tells devices which part of the IP identifies the network and which part identifies the specific device on that network.</p>
+<p>Example:
+IP address: 192.168.1.25
+Subnet mask: 255.255.255.0
+This mask means:</p>
+<p>255.255.255 = the network part</p>
+<p>0 = the host part</p>
+<p>So all devices with IPs starting with 192.168.1.x are on the same network.</p>
+<h3 id="12-what-is-a-port-in-the-context-of-networkingcomputers">12. What is a port? (in the context of networking/computers)</h3>
+<p>In networking, a port is a virtual doorway on a computer that allows specific types of network traffic to enter or leave. It doesn’t refer to a physical plug it's a software based channel used so multiple applications can use the network at the same time without mixing their data.</p>
+<p>Every port is identified by a number (0–65535).
+Examples:</p>
+<p>Port 80 → HTTP (web browsing)</p>
+<p>Port 443 → HTTPS (secure web browsing)</p>
+<p>Port 22 → SSH</p>
+<p>Port 25 → Email (SMTP)</p>
+<p>When your computer communicates over the internet or a network, it uses these port numbers so data goes to the correct application. So in simple terms, a port is like a mailbox slot on a computer that routes specific kinds of network traffic to the right program</p>
+<h3 id="13-what-is-port-forwarding">13. What is port forwarding?</h3>
+<p>Port forwarding is a networking technique that allows devices outside your home network like the internet to access a specific device or service inside your private network. It works by telling your router to take incoming traffic on a certain port number and send it to a specific internal IP address.</p>
+<h3 id="15-what-is-localhost-in-the-context-of-networkingcomputers">15. What is localhost? (in the context of networking/computers)</h3>
+<p>Localhost is a special networking term that refers to the computer you are currently using. When you type “localhost” into a browser or terminal, your device automatically directs the connection back to itself using the loopback IP address 127.0.0.1. This allows your computer to test network services, web servers, and applications locally without using the internet or connecting to other devices. Developers and IT students use localhost to safely experiment, run servers, and troubleshoot network issues because it keeps all communication internal to the machine.</p>
+<h3 id="16-what-does-this-ip-address-represent-127001">16. What does this ip address represent 127.0.0.1?</h3>
+<p>127.0.0.1 is the loopback IP address, which means it always points back to your own computer. When you use this address, you're telling your device to send network traffic to itself instead of going out to the internet or another machine.</p>
+<h3 id="14-what-is-git">14. What is Git?</h3>
+<p>Git is a version control system that helps you track changes to files usually code over time. It lets you save versions of your work, go back to earlier versions, and collaborate with others without overwriting each other’s work. Developers use Git to manage projects, fix bugs, create branches for new features, and merge changes safely.</p>
+<p>Git stores snapshots of your files, keeps a history of every modification, and makes it easy to work on a project from multiple computers or with a team. It’s fast, secure, and works offline. Platforms like GitHub, GitLab, and Bitbucket use Git to host repositories so people can share and collaborate on code.</p>
+<h3 id="15-what-is-github">15. What is GitHub?</h3>
+<p>GitHub is an online platform that hosts Git repositories, making it easier to store, share, and collaborate on code projects. While Git is the tool that tracks changes on your computer, GitHub is the website where you can upload those projects so others can view them, contribute, or work with you.</p>
+<p>GitHub provides features like issue tracking, pull requests, project management tools, wikis, and automated workflows. Developers use it to work on open source projects, store personal code, build portfolios, and collaborate with teams across the world. It also acts as a cloud backup for your repositories.</p>
+<h2 id="concepts-i-did-not-understand">Concepts I did not understand</h2>
+<ul>
+<li><strong>Port forwarding</strong>: is a technique that routes incoming traffic on a specific port of your router to a particular device within your private network.</li>
+<li><strong>SSH</strong>: is a secure protocol used to remotely access and control another computer through an encrypted connection.</li>
+</ul>
+
+</body>
+</html>
